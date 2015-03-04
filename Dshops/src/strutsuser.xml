@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+       <package name="buyer" namespace="/buyer/list" extends="struts-default">
+       
+       
+       
+       
+       <!--  拦截器-->
+        <interceptors>
+             <interceptor name="permissionInt" class="cn.dshop.web.inteceptor.PermissionInterceptor"/>
+             
+             <!-- 填写快递信息前检验用户是否登录    拦截器栈 -->
+	             <interceptor-stack name="permissionStack">
+	                   <interceptor-ref name="defaultStack"/><!-- 系统默认拦截器 -->
+	                   <interceptor-ref name="permissionInt"/>
+	             </interceptor-stack>
+             <!-- 填写快递信息前检验用户是否登录    拦截器栈 -->
+             
+             <!-- 购物车中有商品才可以执行下订单等后续操作     拦截器栈   为被使用-->
+             <interceptor name="cartItemCheck" class="cn.dshop.web.inteceptor.BuyCartInterceptor"/>
+             <interceptor-stack name="cartItemCheckStack">
+             		<interceptor-ref name="defaultStack"/>
+             		<interceptor-ref name="cartItemCheck"/>
+             </interceptor-stack>
+             <!-- 购物车中有商品才可以执行下订单等后续操作     拦截器栈 -->
+             
+       </interceptors>
+       <!-- 拦截器-->
+       
+      
+       
+       
+       <global-results>
+            <result name="logoerror">/WEB-INF/pages/user/Login2.jsp</result>
+            <result name="carterror">/WEB-INF/pages/shopping/deliveInfo.jsp</result>
+       </global-results>
+       
+       
+       
+      
+       
+       
+          
+          <!-- 显示用户注册界面 -->    
+              <action name="buyerreg">
+                   <result>/WEB-INF/pages/user/userReg.jsp</result>
+              
+              </action>
+         <!-- 显示用户注册界面 --> 
+ 
+         <!-- 用户注册  -->        
+	         <action name="regaction" class="cn.dshop.web.action.user.BuyerRegAction" method="reg">
+	                <result name="regMessage">/WEB-INF/pages/user/regMessage.jsp</result>
+	         </action>
+ 		<!-- 用户注册  -->  
+         
+       
+       <!-- 注册成功返回登录页 -->
+         <action name="loginb">
+               <result>/WEB-INF/pages/user/Login2.jsp</result>
+         </action>
+      <!-- 注册成功返回登录页 -->
+      
+         <action name="faceboxlogin">
+               <result>/WEB-INF/pages/user/jmpoplogo.jsp</result>
+         </action>
+         
+         <!-- 用户登录后跳转到快递信息填写界面 -->
+         <action name="buyerlogo"  class="cn.dshop.web.action.user.BuyerLogoAction"  method="BuyerLogo">
+                <result name="message">/WEB-INF/pages/shopping/deliveInfo.jsp</result>
+                
+         </action>
+        <!-- 用户登录后跳转到快递信息填写界面 -->
+        
+        
+        <!-- 测试用户登录 完成后删除 -->
+        <action name="testlogo">
+             
+             <result>/WEB-INF/pages/user/Login2.jsp</result>
+        
+        </action>
+         <!-- 测试用户登录 完成后删除 -->
+         
+         <action name="goReg">
+              <result>/WEB-INF/pages/user/userReg.jsp</result>
+         </action>
+         
+         
+        
+        <!-- 得到当前用户信息后跳转到  跳转到快递信息添加界面-->
+        <action name="deliverInfo" class="cn.dshop.web.action.shopping.DeliverInfoAction" method="diliverInfo">
+                  <interceptor-ref name="permissionStack"/>
+                  <result name="deliverinfo">/WEB-INF/pages/shopping/deliveInfo.jsp</result>  
+                  <result name="backtoconfirm">/WEB-INF/pages/shopping/confirm.jsp</result>  
+                     
+        </action>
+          <!-- 得到当前用户信息后跳转到  跳转到快递信息添加界面-->
+          
+          
+          
+          <!-- 保存用户选择支付方式 和配送信息 -->
+          <action name="shopmanager" class="cn.dshop.web.action.shopping.ShoppingManagerAction" method="saveDeliInfo">
+             
+               <result name="payway">/WEB-INF/pages/shopping/paymentway.jsp</result>
+               <result name="backtoconfirm">/WEB-INF/pages/shopping/confirm.jsp</result>  
+          
+          </action>     
+           <!-- 保存用户选择支付方式 和配送信息 -->     
+          
+          
+          
+           <!-- 保存用户选择的送货与支付方式 --> 
+           <action name="savepayway" class="cn.dshop.web.action.shopping.ShoppingManagerAction" method="savePaymentWay">
+              
+               <result name="confirminfo">/WEB-INF/pages/shopping/confirm.jsp</result>
+               <result name="payway">/WEB-INF/pages/shopping/deliveInfo.jsp</result>
+               <result name="backtoconfirm">/WEB-INF/pages/shopping/confirm.jsp</result> 
+      
+           </action>
+           <!-- 保存用户选择的送货与支付方式 -->      
+           
+           
+           
+           <!--保存订单信息后 跳转到不同的支付确认页面  -->
+           <action name="saveOrder" class="cn.dshop.web.action.shopping.ShoppingManagerAction" method="saveOrder">
+                 <result name="cod">/WEB-INF/pages/shopping/finish_cod.jsp</result>
+                 <result name="net">/WEB-INF/pages/shopping/finish_net.jsp</result>
+                 <result name="bankremittance">/WEB-INF/pages/shopping/finish_bankremittance.jsp</result>
+                 <result name="postofficeremittance">/WEB-INF/pages/shopping/finish_postofficeremittance.jsp</result>
+                 <result name="error">/error.jsp</result>
+           </action>
+           <!--保存订单信息后 跳转到不同的支付确认页面  -->
+           
+           
+           
+           
+           
+           <!-- 返回到购物车页面 -->
+           <action name="editcartitem">
+            
+                 <result>/WEB-INF/pages/shopping/shoppingcart.jsp?${directUrl}</result>
+           </action>
+           <!-- 返回到购物车页面 -->
+           
+            <!-- 返回到送货信息页面 -->
+           <action name="editdeliverinfo"   class="cn.dshop.web.action.shopping.EditDeliverInfo" method="diliverInfo">
+                
+                 <result name="deliverinfo">/WEB-INF/pages/shopping/deliveInfo.jsp</result>
+                     
+           </action>
+           <!-- 返回到送货信息页面 -->
+           
+           
+           
+            <!-- 返回选择派送方式页面 -->
+           <action name="editpayway">
+           		
+                 <result>/WEB-INF/pages/shopping/paymentway.jsp?${directUrl}</result>
+           </action>
+           
+           
+           
+           
+           
+           
+           <!-- 返回选择派送方式页面 -->
+           
+           
+           
+           <!--  找回密码功能-->
+           <action name="forgetpas">
+                    <result>/WEB-INF/pages/user/findPassword.jsp</result>
+           </action>
+           
+           
+           <action name="" class="" method="">
+                  <result name="emptyusername">/WEB-INF/pages/user/findPassword.jsp</result>
+                  <result name="password2">/WEB-INF/pages/user/findPassword2.jsp</result>
+           </action>
+      
+           
+       </package>
+       
+       
+       
+       
+       <!-- 后台用户管理 -->
+       
+       <package name="UserList" namespace="/control/user" extends="struts-default">
+       
+       <!-- 展示所以用户类表 -->
+              <action name="showalluser" class="cn.dshop.web.action.user.BuyerListAction" method="showAllUser">
+                   <result name="allUser">/WEB-INF/pages/user/UserListsec.jsp</result>
+              
+              </action>
+       <!-- 展示所以用户类表 -->      
+       
+       <!--   -->
+            <action name="dealuser_*" class="cn.dshop.web.action.user.BuyerManagerAction" method="{1}">
+                 <result name="dealUser">/WEB-INF/pages/share/UserMessage.jsp?${page}</result>
+            
+            </action>
+            
+           
+            
+            
+            
+            
+            
+            
+       
+            
+     
+       </package>
+       
+       
+		<!-- 后台用户管理 -->
+		
+		
+	
+		
+		
+		
+
+</struts>

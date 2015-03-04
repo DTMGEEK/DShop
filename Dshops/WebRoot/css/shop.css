@@ -1,0 +1,262 @@
+#products{
+	
+	width:790px;
+	height:900px;
+	margin-top:30px;
+	float:left;
+
+	
+}
+
+
+#hotproduct{
+	
+	width:770px;
+	height:260px;
+	margin-top:10px;
+	margin-left:10px;
+  background:url(../images/hotproductbg.png);
+	
+	
+}
+
+#hotproduct h1{
+	
+	width:155px;
+	height:35px;
+	text-indent:-99999px;
+	background:url(../images/champroducts.png);
+	
+	
+}
+
+#hotproduct ul{
+	
+	margin-left:180px;
+	
+	
+}
+
+#hotproduct ul li{
+	
+	float:left;
+	margin-left:15px;
+	margin-top:13px;
+
+	
+}
+
+#hotproduct ul li a{
+	
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	color:blue;
+	
+}
+
+#hotproduct ul li a:hover{
+	
+	
+	color:red;
+	
+	
+}
+
+#hotproduct ul li a:visited{
+	
+	
+	
+}
+
+
+#hotproduct  h2{
+	
+	width:750px;
+	height:10px;
+	text-indent:-9999px;
+	margin-top:15px;
+	margin-bottom:20px;
+	background:url(../images/shopbanner.png);
+	
+	
+}
+
+
+#choice{
+	
+	margin-left:10px;
+	width:760px;
+	height:130px;
+	background:url(../images/choicebg.png) no-repeat;
+	
+	
+	
+}
+
+
+#choice  p{
+	
+
+	color:red;
+	float:left;
+  margin-top:10px;
+  margin-left:20px;
+   
+	font-weight:bold;
+	
+} 
+
+
+
+#choice  ul{
+	
+   font-weight:bold;
+	 width:750px;
+	
+	
+}
+
+#choice ul li{
+	
+	float:left;
+	
+}
+
+
+
+#prodctlists{
+	
+	
+	width:770px;
+  height:600px;
+  margin-top:20px;
+  float:left;
+  background:url(../images/prodctlistsbg.png);
+
+
+}
+
+#prodctlists dl{
+	
+	width:230px;
+	height:272px;
+	float:left;
+	margin-top:20px;
+	margin-left:20px;
+
+	
+	
+}
+
+#prodctlists dl dt{
+	
+	
+	display:block;
+	width:198px;
+	height:171px;
+	margin-left:18px;
+	
+}
+
+
+#prodctlists dl dd{
+	
+	text-align:center;
+	margin-top:20px;
+	width:246px;
+	font-weight:bold;
+
+}
+
+#inframehold{
+	
+	width:770px;
+  height:600px;
+  margin-top:10px;
+  float:left;
+
+}
+
+inframehold iframe{
+	
+	margin-top:0px;
+	padding-top:0px;
+	
+	
+}
+
+
+#chrislate{
+
+ width:100px;
+
+
+	
+	
+}
+
+#shopfooter{
+	
+    top:1300px;
+	left:220px;
+	width:770px;
+	height:135px;
+    position:absolute;
+
+
+}
+
+#shopfooter #abuotus{
+
+	width:770px;
+	height:103px;
+	background:url(../images/footerbg1.png);
+	
+
+
+}
+
+#shopfooter #abuotus  p{
+	
+	margin-left:50px;
+	margin-top:17px;
+	line-height:150%;
+	
+}
+
+#shopfooter #abuotus img{
+	
+	float:right;
+	margin-top:30px;
+	margin-right:40px;
+	
+}
+
+#shopfooter #abuotus ul{
+	
+	margin-top:30px;
+	margin-left:250px;
+	
+}
+
+#shopfooter #abuotus ul li{
+	
+	float:left;
+
+	
+	
+}
+
+#shopfooter #copyright{
+	
+	width:770px;
+	height:27px;
+	margin-top:5px;
+	background:url(../images/footerbg2.png);
+	
+}
+
+.pagination a.number {
+				border: 1px solid #ddd;
+                }

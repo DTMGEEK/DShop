@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+
+   <!-- 部门管理 -->
+	    <package name="EmployeeList" namespace="/control/priviledge" extends="struts-default">
+	            
+	            
+	            
+	 <!-- 后台登陆后才可以进行操作  完成所有功能后加入 -->
+		         <interceptors>
+		              <interceptor name="bglogointeceptor" class="cn.dshop.web.inteceptor.BgPermissionInterceptor"/>
+		              <interceptor name="privilegetintecreptor" class="cn.dshop.web.inteceptor.EPermissionInterceptor"/>
+		          		  <interceptor-stack name="bgPermissionStack">
+		                  <interceptor-ref name="defaultStack"/>
+		                  <interceptor-ref name="bglogointeceptor"/>
+		                  <interceptor-ref name="privilegetintecreptor"/>		          
+		              </interceptor-stack>
+		        </interceptors>
+     <!-- 后台登陆后才可以进行操作  完成所有功能后加入-->
+	            
+	            
+	     <!--包内的所有方法都使用该拦截器    --> 
+	                 <default-interceptor-ref name="bgPermissionStack"/>
+	     <!--包内的所有方法都使用该拦截器 --> 
+	     
+	     
+	     
+	     <!-- 没登录到系统 跳转到登陆界面   实现粗粒度的权限控制 -->
+	     <global-results>
+	            <result name="bglogoerro">/WEB-INF/pages/controlcenter/Backgroundlogin.jsp</result>
+	            <result name="errormessage">/error.jsp</result>
+	     </global-results>
+	    <!-- 没登录到系统 跳转到登陆界面 实现粗粒度的权限控制  -->
+	     
+	     
+	            <!-- 显示部门列表 -->
+	            <action name="alldepartmentlist" class="cn.dshop.web.action.priviledge.DeparetmentAction" method="showAllDepart">
+	                 <result name="alldepartmetn">/WEB-INF/pages/Department/DeparetmentListsec.jsp</result>
+	            </action> 
+	            <!-- 显示部门列表 -->
+	            
+	            <!-- 部门CRUD -->
+	            <action name="dealdepartmetn_*" class="cn.dshop.web.action.priviledge.DeparetmentManagerAction" method="{1}">
+	                  <result name="dealdepart">/WEB-INF/pages/share/DepartmentMessage.jsp?${page}</result>
+	            </action>
+	            <!-- 部门CRUD -->
+	            
+	            <!-- 显示所有员工 -->
+	            <action name="allemployees" class="cn.dshop.web.action.priviledge.EmployeeAction" method="allEmployee">
+	                  <result name="allemployee">/WEB-INF/pages/employee/EmployeeListsec.jsp</result>
+	            </action>
+	            <!-- 显示所有员工 -->
+	            
+	            <!-- 员工CRUD -->
+	            <action name="dealemployee_*" class="cn.dshop.web.action.priviledge.EmployeeManagerAction" method="{1}">
+	                 <!-- 配置fileUpload的拦截器 -->
+				               <interceptor-ref name="fileUpload">
+				             <!-- 配置允许上传的文件类型 -->
+				                  <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg,image/pjpeg</param>
+				             <!-- 配置允许上传的文件大小 单位字节-->
+				                 <param name="maximumSize">5242880</param> 
+				            </interceptor-ref>
+				            <interceptor-ref name="defaultStack"/> 
+	                
+	                <result name="dealemployee">/WEB-INF/pages/share/EmployeeMessage.jsp?${page}</result>
+	                <result name="input">/error.jsp</result>
+	             </action>
+	            <!-- 员工CRUD -->
+	            
+	            
+	            
+	            
+	            
+	            <!-- 得到全部权限组 -->
+	           <action name="privilegegroup" class="cn.dshop.web.action.priviledge.PrivilegeGroupAction" method="privilegeGroup">
+	                  <result name="privilegegroup">/WEB-INF/pages/priviledge/PriviledgeListsec.jsp</result>
+	           </action>
+	            <!-- 得到全部权限组 -->
+	            
+	            <!-- 权限CRUD -->
+	            <action name="dealprivilege_*" class="cn.dshop.web.action.priviledge.PrivilegeGroupManagerAction" method="{1}">
+	                  <result name="dealprivilege">/WEB-INF/pages/share/PriviledgeMessage.jsp?${page}</result>
+	                  <result name="input">/error.jsp</result>
+	            </action>
+	            <!-- 权限CRUD -->
+	            
+	            
+	            
+	            <!-- 跳转到权限修改界面 -->
+	            <action name="showedit" class="cn.dshop.web.action.priviledge.PrivilegeGroupManagerAction" method="showedit">
+	                    <result name="showedit">/WEB-INF/pages/priviledge/editprivilegegroup.jsp</result>
+	            </action>
+	            <!-- 跳转到权限修改界面 -->
+	            
+	            
+	            
+	            <!-- 跳转到员工权限设置界面 -->
+	            <action name="showseleprivilege" class="cn.dshop.web.action.priviledge.EmployeeManagerAction" method="setEmpPrivilege">
+	                    <result name="selprivilege">/WEB-INF/pages/priviledge/privilegeSet.jsp</result>
+	            </action>
+	            <!-- 跳转到员工权限设置界面 -->
+	            
+	            
+	            <!-- 把权限组分配给员工 -->
+	            <action name="setEmpPrivilege" class="cn.dshop.web.action.priviledge.EmployeeManagerAction" method="privilegeGroupSet">
+	                  <result name="dealemployee">/WEB-INF/pages/share/setEmployeePrivilegeMessage.jsp</result>
+	            </action>
+	             <!-- 把权限组分配给员工 -->
+	            
+	    </package>
+    <!-- 部门管理  -->
+    
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- 文件上传模块 -->
+         
+    
+
+
+</struts>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+       <package name="shop" namespace="/product/list" extends="struts-default">
+       
+   
+       <!-- 携带销售最好的6个跳转到商场首页 -->
+       <action name="goshopindex"  class="cn.dshop.web.action.product.front.FrontProductAction" method="getMainShop">
+               <result name="mainproduct">/WEB-INF/pages/shopping/shopIndex.jsp</result>
+       </action>
+       <!-- 携带销售最好的6个跳转到商场首页 -->
+       
+       <!--展示特定类型的商品  -->
+             <action name="allproducts" class="cn.dshop.web.action.product.front.FrontProductAction" method="getMainShop">
+                  <result name="mainproduct">/WEB-INF/pages/shopping/shop.jsp</result> 
+             </action>
+       <!--展示特定类型的商品  -->
+             
+       <!--商城  -->
+             <action name="inproducts" class="cn.dshop.web.action.product.front.FrontProductAction" method="getFrontProduct">
+                <result name="frontallproduct">/WEB-INF/pages/shopping/shopin.jsp</result>
+                
+             </action>
+       <!--商城  -->     
+             
+       <!--展示特定种类商品中最高销售量的商品  -->
+             <action name="topsale" class="cn.dshop.web.action.product.front.FrontSwitchAction" method="getTopSale">
+                 <result name="topsale" >/WEB-INF/pages/shopping/topsell.jsp</result>
+             
+             </action>
+      <!--展示特定种类商品中最高销售量的商品  -->    
+       
+       <!-- 展示用户的浏览历史 -->
+             <action name="viewhis" class="cn.dshop.web.action.product.front.FrontSwitchAction" method="getViewHistory">
+                  <result name="viewhis">/WEB-INF/pages/shopping/viewHistory.jsp</result>
+             </action>
+       <!-- 展示用户的浏览历史 -->
+       
+       
+         
+             <action name="viewcookie" class="cn.dshop.web.action.product.front.ViewProductAction" method="ProductCookie">
+                  <result name="cookiehis">/WEB-INF/pages/shopping/goodin.jsp</result>
+             </action>
+             
+             
+             <!-- 购物车模块 -->
+             
+             
+             
+             
+             
+          <!-- 新建或向购物车中添加商品 -->
+             <action name="cartsession" class="cn.dshop.web.action.shopping.CartAction" method="CareSession">
+                  <result name="cart">/WEB-INF/pages/shopping/shoppingcart.jsp</result>
+             </action>
+         <!-- 新建或向购物车中添加商品 -->
+         
+         
+         
+          <!-- facebo效果购物车 -->
+             <action name="faceboxcartsession" class="cn.dshop.web.action.shopping.CartAction" method="CareSession">
+                  <result name="cart">/WEB-INF/pages/shopping/faceboxshoppingcart.jsp</result>
+             </action>
+         <!-- facebo效果购物车 -->
+         
+         
+         
+         
+         
+          
+             
+          <!-- 购物车中商品的CRUD -->
+             <action name="CartManager_*" class="cn.dshop.web.action.shopping.CartManagerAction" method="{1}">
+                 <result name="delitem">/WEB-INF/pages/shopping/shoppingcart.jsp?{directUrl}</result>
+             </action>
+         <!-- 购物车中商品的CRUD -->   
+         
+         <!-- 更新购物车中商品购买数量 -->
+             <action name="updateamoutn" class="cn.dshop.web.action.shopping.CartManagerAction" method="updateAllAmout">
+                 <result name="updateamount">/WEB-INF/pages/shopping/shoppingcart.jsp</result>
+             </action>
+         <!-- 更新购物车中商品购买数量 -->
+             
+             <!-- 购物车模块 -->
+             
+          <!-- 订单提交结果 -->
+             <action name="finishshop" class="cn.dshop.web.action.shopping.ShoppingManagerAction" method="saveorder">
+            
+                   <result name="cod">/WEB-INF/pages/shopping/finish_cod.jsp</result>
+                   <result name="net">/WEB-INF/pages/shopping/finish_net.jsp</result>
+                   <result name="bankremittance">/WEB-INF/pages/shopping/finish_bankremittance.jsp</result>
+                   <result name="postofficeremittance">/WEB-INF/pages/shopping/finish_postofficeremittance.jsp</result>
+             </action>
+             
+             
+             
+             <!-- compass商品查询 -->
+             <action name="productsearch" class="cn.dshop.web.action.product.ProducSearchAction" method="serachProduct">
+                 <result name="searchresult">/WEB-INF/pages/products/queryproductlist.jsp</result>
+             </action>
+      		<!-- compass商品查询 -->
+       </package>
+       
+       
+       
+      <!-- json 购物车添加商品 -->
+             
+        <package name="test" namespace="/json/shopcart" extends="json-default">
+	       <action name="cartsession" class="cn.dshop.web.action.shopping.CartAction" method="CareSession">
+			   <result type="json" >
+			   
+			   </result>
+	  	   </action>
+	  	  
+		</package>
+       
+       <!-- json 购物车添加商品 -->
+
+
+</struts>

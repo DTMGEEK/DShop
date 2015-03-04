@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	
+	
+    <!--OpenEntityManagerInView 解决懒加载问题-->
+	 <filter>
+        <filter-name>hibernateFilter</filter-name>
+        <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+   		<init-param>
+   		<!-- 指定org.springframework.orm.jpa.LocalEntityManagerFactoryBean在spring配置文件中的名称,默认值为entityManagerFactory
+   		如果LocalEntityManagerFactoryBean在spring中的名称不是entityManagerFactory,该参数一定要指定,否则会出现找不到entityManagerFactory的例外 -->
+			<param-name>singleSession</param-name>
+			<param-value>false</param-value>
+		</init-param>	
+    </filter>
+    <filter-mapping>
+        <filter-name>hibernateFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <!--OpenEntityManagerInView 解决懒加载问题-->
+	
+    
+	
+	
+	<!--struts2 过滤器-->
+	<filter>
+	    <filter-name>dshopaction</filter-name>
+	    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>dshopaction</filter-name>
+        <url-pattern>/*</url-pattern>  
+    </filter-mapping>
+    <!--struts2 过滤器-->
+    
+    
+    
+    
+
+    <!--加载spring文件-->
+     <context-param>
+	        <param-name>contextConfigLocation</param-name>
+	        <param-value>classpath:spring.xml</param-value>
+	 </context-param>
+	 
+	 <listener>
+	     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	 </listener>
+	<!--加载spring文件-->
+	
+	<!-- 监听session的情况 -->
+	<listener>
+	       <listener-class>cn.dshop.web.action.shopping.SiteSessionListener</listener-class>
+	</listener>
+	<!-- 监听session的情况 -->
+	
+	
+	<!--
+	
+	
+	
+	 后台用户登录 过滤器   用户粗粒度权限控制
+	<filter>
+	     <filter-name>PrivilegeFilter</filter-name>
+	     <filter-class>cn.dshop.web.filter.PrivilegeFilter</filter-class>
+	</filter>
+	
+	
+	<filter-mapping>
+	      <filter-name>PrivilegeFilter</filter-name>
+	      <url-pattern>/control/*</url-pattern>
+	</filter-mapping>
+	 后台用户登录 过滤器   用户粗粒度权限控制
+	
+	
+    
+    
+  -->
+
+<!-- 缓存商城页面 -->
+ <filter>
+       <filter-name>CacheFilter</filter-name>
+       <filter-class>com.opensymphony.oscache.web.filter.CacheFilter</filter-class>
+       <init-param>
+             <param-name>time</param-name>
+             <param-value>7200</param-value>
+       </init-param>
+       <init-param>
+             <param-name>scope</param-name>
+             <param-value>application</param-value>
+       </init-param>
+ </filter>
+ 
+ <filter-mapping>
+        <filter-name>CacheFilter</filter-name>
+        <url-pattern>/product/list/inproducts.action</url-pattern>
+ </filter-mapping>
+ 
+ <!-- 缓存商城页面 -->
+
+
+
+
+
+      
+  
+  
+  
+  
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+</web-app>

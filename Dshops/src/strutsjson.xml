@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    
+    <package name="default" extends="json-default" namespace="/test">  
+        <action name="json" class="cn.dshop.web.action.user.BuyerRegAction" method="checkLogin">  
+            <result name="success" type="json">/index.jsp</result>  
+        </action>  
+        
+        <action name="esixtusernname" class="cn.dshop.web.action.priviledge.EmployeeManagerAction" method="checkEmployeName">
+           <result name="cemployeeres" type="json"></result>
+        </action>
+        
+        
+    </package>  
+    
+    
+		
+
+		
+    
+
+</struts>

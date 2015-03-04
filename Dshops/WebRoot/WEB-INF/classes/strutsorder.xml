@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  
+
+
+   
+    
+    
+   <!--订单表 管理 -->
+	    <package name="OrderFormList" namespace="/control/order" extends="struts-default">
+	    
+	    
+	    
+	    <!-- 展示所有订单 -->
+	       <action name="orderform" class="cn.dshop.web.action.order.OrderListAction" method="showOrderForm">
+	            <result name="allroder">/WEB-INF/pages/book/OrderFormListsec.jsp</result>
+	       </action>
+	    <!-- 展示所有订单 -->
+	    
+	    
+	    
+	    <!-- 显示某一个订单的详细信息 -->
+		    <action name="showorderview" class="cn.dshop.web.action.order.OrderViewAction" method="orderView">
+		          <result name="orderview">/WEB-INF/pages/book/orderview.jsp</result>
+		    
+		    </action>
+	    <!-- 显示某一个订单的详细信息 -->
+	    
+	    
+	    
+	    
+	    <!-- 显示各种信息修改页 -->
+		    <action name="showmofiyorderinfo_*" class="cn.dshop.web.action.order.OrderManagerAction" method="{1}">
+		           <result name="showmodifyContactinfo">/WEB-INF/pages/book/modifyContactInfo.jsp</result>
+		    </action>
+	    <!-- 显示各种信息修改页 -->
+	    
+	    
+	    
+	    
+	    
+	    <!-- 修改信息  同步回数据库-->
+		    <action name="mofiyorderinfo_*" class="cn.dshop.web.action.order.OrderManagerAction" method="{1}">
+		           <result name="modifyContactinfo">/WEB-INF/pages/share/OrderInfoMessage.jsp${orderid}</result>
+		    </action>
+	   <!-- 修改信息  同步回数据库-->
+	    
+	    
+	    
+	    
+	    
+	    <!-- 打印订单 -->
+		    <action name="printorderform" class="cn.dshop.web.action.order.OrderManagerAction" method="printOrder">
+		         <result name="print">/WEB-INF/pages/book/print.jsp</result>
+		    </action>
+	    <!-- 打印订单 -->
+	    
+	    
+	    
+	    
+	    
+	    <!-- 订单各种状态的转换 -->
+		    <action name="ordermanager_*" class="cn.dshop.web.action.order.OrderManagerAction" method="{1}">
+		         <result name="orderlist">/WEB-INF/pages/share/CancelOrderMessage.jsp</result>
+		         <result name="waitpay">/WEB-INF/pages/share/ConfrinPayedMessage.jsp</result>
+		         <result name="turndeliver">/WEB-INF/pages/share/DeliverMessage.jsp</result>
+		         <result name="delivered">/WEB-INF/pages/share/ConfirnDeliveredMessage.jsp</result>
+		         <result name="received">/WEB-INF/pages/share/ReceivedMessage.jsp</result>
+		    </action>
+	    <!-- 订单各种状态的转换 -->
+	    
+	    
+	    
+	    
+	    <!-- 锁定订单 -->
+	    <action name="lockorder" class="cn.dshop.web.action.order.OrderViewAction" method="addLock">
+	           <result name="addlock">/WEB-INF/pages/share/LockerMessage.jsp</result>
+	    </action>
+	    <!-- 锁定订单 -->
+	    
+	    
+	    
+	    
+	    <!-- 解锁订单 -->
+	    <action name="unlockorder" class="cn.dshop.web.action.order.OrderManagerAction" method="unlock">
+	          <result name="unlock">/WEB-INF/pages/share/LockerMessage.jsp</result>   
+	    </action>
+	    <!-- 解锁订单 -->
+	    
+	    
+	    
+	    
+	    
+	    <!-- 显示所有锁定订单 为被使用 -->
+	    <action name="locklist" class="cn.dshop.web.action.order.LoadOrderListAction" method="LoadOrderListAction">
+	           <result name="lockerlist"></result>
+	    </action>
+	    <!-- 显示所有锁定订单 为被使用 -->
+	    
+	    
+	    
+	    
+	  
+	    
+	    </package>
+    <!-- 订单表 管理  -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- 文件上传模块 -->
+         
+    
+
+
+</struts>

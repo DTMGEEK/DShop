@@ -1,0 +1,404 @@
+*{
+	
+	margin:0px;
+	padding:0px;
+	
+}
+
+
+body{
+	
+	margin:0 auto;
+	padding:0px;
+	width:1024px;
+	position:relative;
+	background:url(../images/bodybg.png) repeat-x;
+	
+}
+
+
+ul{
+	
+  list-style-type:none;
+	
+}
+
+a{
+	
+	text-decoration:none;
+	
+}
+
+#logo{
+	
+	width:210px;
+	height:64px;
+	text-indent:-9999px;
+	background:url(../images/logo.png) no-repeat;
+	
+}
+
+#ser{
+	
+	float:right;
+	margin-top:20px;
+	margin-right:20px;
+	
+	
+}
+
+
+
+
+
+#adv{
+	
+
+	width:1024px;
+	height:300px;
+	float:left;
+	background:green;
+	
+}
+
+#info{
+	
+	width:77px;
+	height:207px;
+	margin-left:85px;
+	float:right;
+	background:pink;
+	
+}
+
+
+#types{
+	
+	width:190px;
+	height:485px;
+	float:left;
+	margin-top:30px;
+	margin-left:20px;
+	background:url(../images/typesbg.png) no-repeat;
+	
+}
+
+
+#types #discount{
+		
+	width:158px;
+	height:275px;
+	margin-left:5px;
+	margin-top:5px;
+	background:url(../images/typebg.png);
+	
+}
+
+#types #discount h1{
+	
+	width:112px;
+	height:20px;	
+	text-indent:-9999px;
+	margin-left:10px;
+	margin-top:10px;
+	background:url(../images/typetop.png) no-repeat;
+	
+	
+}
+
+#types #discount ul{
+	
+	display:block;
+	width:158px;
+	height:275px;
+	margin-left:20px;
+	margin-top:30px;
+	
+	
+
+}
+
+#types #discount ul li{
+	
+	width:158px;
+	margin-top:10px;
+	background:url(../images/typefront.png) no-repeat;
+	text-indent:20px;
+	
+	
+}
+
+#types #discount ul li a{
+	
+	display:block;
+	margin-right:35px;
+	border-bottom:1px solid black;
+	
+	
+}
+
+
+#types #sellservice{
+	
+	width:168px;
+	height:194px;
+	margin-top:30px;
+	background:url(../images/shoppinghelp.png);
+	
+	
+}
+
+
+
+
+#prodcuts{
+	
+	width:780px;
+	height:500px;
+	float:left;
+	margin-top:30px;
+	margin-left:10px;
+	background:url(../images/productbg.png);
+	
+}
+
+
+#prodcuts h1{
+	
+	display:block;
+	width:780px;
+	height:32px;
+	margin-top:10px;
+	text-indent:-99999px;
+	background:url(../images/productbar.png);
+
+}
+
+#prodcuts dl{
+	
+	display:block;
+	width:230px;
+	margin-left:20px;
+	margin-top:10px;
+	height:210px;
+  border:1px solid black;
+	float:left;
+	
+}
+
+#prodcuts dl dt{
+	
+	width:220px;
+	height:145px;
+	margin-bottom:20px;
+	
+	
+}
+
+#prodcuts dl dd{
+	
+	margin-left:10px;
+	margin-top:5px;
+float:left;
+	
+
+	
+}
+
+
+
+
+
+#footer{
+	
+	top:878px;
+	left:220px;
+	width:770px;
+	height:135px;
+  position:absolute;
+	
+}
+
+#footer #abuotus{
+
+	width:770px;
+	height:103px;
+	background:url(../images/footerbg1.png);
+	
+
+
+}
+
+#footer #abuotus  p{
+	
+	margin-left:50px;
+	margin-top:17px;
+	line-height:150%;
+	
+}
+
+#footer #abuotus img{
+	
+	float:right;
+	margin-top:30px;
+	margin-right:40px;
+	
+}
+
+#footer #abuotus ul{
+	
+	margin-top:30px;
+	margin-left:250px;
+	
+}
+
+#footer #abuotus ul li{
+	
+	float:left;
+
+	
+	
+}
+
+#footer #copyright{
+	
+	width:770px;
+	height:27px;
+	margin-top:5px;
+	background:url(../images/footerbg2.png);
+	
+}
+
+
+#Login{
+	
+  width:600px;
+  height:500px;
+  margin-top:800px;
+  float:left;
+
+	
+	
+}
+
+#cmfalshes{
+	
+	width:200px;
+	height:200px;
+	float:left;
+	
+	
+}
+
+
+
+#topsell{
+	
+	width:158px;
+	height:275px;
+	margin-left:5px;
+	margin-top:10px;
+	background:url(../images/topsell.png) no-repeat;
+	
+	
+}
+
+#topsell h1{
+	
+	display:block;
+	width:112px;
+	height:20px;	
+	margin-left:20px;
+	text-indent:-9999px;
+	
+	
+}
+
+
+#topsell ul{
+	
+	display:block;
+	width:158px;
+	height:275px;
+	margin-left:20px;
+	margin-top:30px;
+	
+	
+
+}
+
+#topsell ul li{
+	
+	width:158px;
+	margin-top:10px;
+	background:url(../images/typefront.png) no-repeat;
+	text-indent:20px;
+	
+	
+}
+
+#topsell ul li a{
+	
+	display:block;
+	margin-right:35px;
+	border-bottom:1px solid black;
+	
+	
+}
+
+
+
+
+#bhis{
+	
+	
+	width:158px;
+		height:275px;
+	margin-left:5px;
+	margin-top:10px;
+	background:url(../images/borhis.png) no-repeat;
+	
+}
+
+#bhis h1{
+	
+	display:block;
+	width:112px;
+	height:20px;	
+	margin-left:20px;
+	text-indent:-9999px;
+	
+	
+}
+
+
+#bhis  ul{
+	
+	display:block;
+	width:158px;
+	height:275px;
+	margin-left:20px;
+	margin-top:30px;
+
+}
+
+
+#bhis ul li{
+	
+	width:158px;
+	margin-top:10px;
+	
+	background:url(../images/typefront.png) no-repeat;
+	text-indent:20px;
+	
+	
+}
+
+#bhis  ul li a{
+	
+	display:block;
+	margin-right:35px;
+	border-bottom:1px solid black;
+	
+	
+}

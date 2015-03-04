@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+  
+
+
+   
+    
+    
+   <!-- 产品类型列表 管理CRUD -->
+	    <package name="ProductTypeList" namespace="/control/product" extends="struts-default">
+	    
+	    
+	     	  <global-results>
+	                  <result name="input">/error.jsp</result>
+	          </global-results>
+	          
+	          <!-- compass 搜索 -->
+	          <action name="searchResult" class="cn.dshop.web.action.product.ProducSearchAction" method="serachProduct">
+	                   <result name="searchresult">//WEB-INF/pages/products/queryproductlist.jsp</result>
+	          
+	          </action>
+	          <!-- compass 搜索 -->
+	          
+	          
+	      <!-- 产品类型列表展示 -->
+	          <action name="showprodutlist" class="cn.dshop.web.action.product.ProductTypeAction" method="showAllProductType">
+	               <result name="allproduttype">/WEB-INF/pages/products/ProductTypeListsec.jsp</result>
+	          </action>
+	           <!-- 产品类型列表展示 -->
+	           
+	          <!-- 产品类型管理 -->
+	          <action name="dealtype_*" class="cn.dshop.web.action.product.ProductTypeManagerAction" method="{1}">
+	                <result name="dealtypesuccess">/WEB-INF/pages/share/Message.jsp?${page}</result>
+	          </action>
+	          <!-- 产品类型管理 -->
+	          
+	          <!-- 产品品牌列表展示 -->
+	          <action name="showbrandlist" class="cn.dshop.web.action.product.BrandAction" method="showAllBrand">
+	                  <result name="allbrand">/WEB-INF/pages/products/BrandListsec.jsp</result>
+	          </action>
+	          <!-- 产品品牌列表展示 -->
+	          
+	          <!-- 产品品牌管理 -->
+	          <action name="dealbrand_*" class="cn.dshop.web.action.product.BrandManagerAction" method="{1}">
+	         			
+	          			     <!-- 配置fileUpload的拦截器 -->
+				               <interceptor-ref name="fileUpload">
+				             <!-- 配置允许上传的文件类型 -->
+				                  <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg,image/pjpeg</param>
+				             <!-- 配置允许上传的文件大小 单位字节-->
+				                 <param name="maximumSize">5242880</param> 
+				            </interceptor-ref>
+				            <interceptor-ref name="defaultStack"/> 
+	                
+	                  <result name="crudbrand">/WEB-INF/pages/share/BrandMessage.jsp?${page}</result>
+       
+	          </action>
+             <!-- 产品品牌管理 -->
+             
+             
+             <!-- 产品表展示 -->
+              <action name="allproduct" class="cn.dshop.web.action.product.ProductAction" method="showAllProducts">
+                 <result name="allproduct">/WEB-INF/pages/products/ProductListsec.jsp</result>
+            
+              </action>
+            <!-- 产品表展示 -->
+            
+            
+            
+            <!-- 显示增加列表 -->
+            <action name="showaddproductform" class="cn.dshop.web.action.product.ProductManagerAction" method="showAddProduct">
+                  <result name="showaddproduct">/WEB-INF/pages/products/add_productsec.jsp</result>
+            </action>
+            <!-- 显示增加列表 -->
+            
+            
+            
+            <!-- 得到所有类型 -->
+            <action name="selecttypere" class="cn.dshop.web.action.product.ProductManagerAction" method="getSelectType">
+                  <result name="selecttype">/WEB-INF/pages/products/productTypeSelect.jsp</result>
+            </action>
+            <!-- 得到所有类型 -->
+            
+	          <!-- 产品管理 -->
+	          <action name="dealproduct_*" class="cn.dshop.web.action.product.ProductManagerAction" method="{1}">
+	          
+	                         <!-- 配置fileUpload的拦截器 -->
+				               <interceptor-ref name="fileUpload">
+				             <!-- 配置允许上传的文件类型 -->
+				                  <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg,image/pjpeg</param>
+				             <!-- 配置允许上传的文件大小 单位字节-->
+				                 <param name="maximumSize">5242880</param> 
+				            </interceptor-ref>
+				            <interceptor-ref name="defaultStack"/> 
+				            
+	                 <result name="dealProductsuc">/WEB-INF/pages/share/ProductMessage.jsp?${page}</result>
+	          </action>
+	          <!-- 产品管理 -->
+	          
+	          
+	          <!-- 产品样式表展示 -->
+	          <action name="prostyles" class="cn.dshop.web.action.product.ProductStyleAction" method="getProductStyle">
+	                <result name="productstyle">/WEB-INF/pages/products/productstyelist.jsp?${productId}</result>
+	          </action>
+	          <!-- 产品样式表展示 -->
+	          
+	          
+	          <!-- 产品样式管理 -->
+	          <action name="dealproductstyle_*" class="cn.dshop.web.action.product.ProductStyleManagerAction" method="{1}">	          
+	          			  <!-- 配置fileUpload的拦截器 -->
+				               <interceptor-ref name="fileUpload">
+				             <!-- 配置允许上传的文件类型 -->
+				                  <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg,image/pjpeg</param>
+				             <!-- 配置允许上传的文件大小 单位字节-->
+				                 <param name="maximumSize">5242880</param> 
+				            </interceptor-ref>
+				            <interceptor-ref name="defaultStack"/> 
+	                 <result name="dealstyel">/WEB-INF/pages/share/StyleMessage.jsp?${productId}</result>
+	          </action>
+	          <!-- 产品样式管理 -->
+	    </package>
+    <!-- 产品类型列表 管理CRUD -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- 文件上传模块 -->
+         
+    
+
+
+</struts>

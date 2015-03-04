@@ -1,0 +1,200 @@
+
+body{
+	
+	margin:0 auto;
+	
+	
+}
+
+
+#good{
+		
+	width:795px;
+	height:1150px;
+	float:left;
+	margin-top:30px;
+
+	background:url(../images/goodbg.png);
+
+}
+
+#good h1{
+	
+	width:795px;
+	height:26px;
+	text-indent:30px;
+	font-size:20px;
+	margin-top:20px;
+	margin-left:10px;
+	background:url(../images/goodbanner.png) no-repeat;
+	
+}
+
+#good #goodimg{
+	
+	width:300px;
+	height:230px;
+	float:left;
+	margin-left:50px;
+	margin-top:20px;
+	
+	
+}
+
+#good #gooddescri ul{
+	
+	font-size:20px;
+	display:block;
+	width:250px;
+	height:230px;
+	float:left;
+	margin-left:50px;
+	margin-top:`15px;
+	
+
+}
+
+#good #gooddescri ul li{
+	
+	line-height:150%;
+	margin-top:10px;
+	margin-left:20px;
+	border-bottom:1px solid black;
+	margin-right:10px;
+	
+	
+}
+
+
+#good #gooddescri ul li p{
+	
+   color:red;
+	
+}
+
+
+ .line{
+	
+	margin-top:300px;
+	margin-left:20px;
+	margin-right:20px;
+	text-indent:-9999px;
+	border-bottom:1px solid black;
+	clear:both;
+	
+	
+	
+}
+
+#prodes{
+	
+	margin-top:380px;
+	clear:both;
+ 
+	
+	
+}
+
+#prodes h2{
+	
+	margin-left:20px;
+	
+	
+}
+
+#prodes p{
+	
+	font-size:16px;
+	width:750px;
+	height:200px;
+	line-height:150%;
+	margin-top:15px;
+	margin-left:20px;
+	
+	
+}
+
+#comment{
+	
+	width:750px;
+	height:400px;
+
+	
+	
+	
+}
+
+
+
+#types #discount h2{
+    
+	
+	width:111px;
+	height:20px;
+	margin-top:10px;
+	margin-left:10px;
+	text-indent:-9999px;
+	background:url(../images/goodliu.png) no-repeat;
+	
+}
+
+#gfooter {
+	
+	top:1500px;
+	left:220px;
+	width:770px;
+	height:135px;
+  position:absolute;
+	
+	
+}
+
+#gfooter #gabuotus{
+
+	width:770px;
+	height:103px;
+	background:url(../images/footerbg1.png);
+	
+
+
+}
+
+#gfooter #gabuotus  p{
+	
+	margin-left:50px;
+	margin-top:17px;
+	line-height:150%;
+	
+}
+
+#gfooter #gabuotus img{
+	
+	float:right;
+	margin-top:30px;
+	margin-right:40px;
+	
+}
+
+#gfooter #gabuotus ul{
+	
+	margin-top:30px;
+	margin-left:250px;
+	
+}
+
+#gfooter #gabuotus ul li{
+	
+	float:left;
+
+	
+	
+}
+
+#gfooter #gcopyright{
+	
+	width:770px;
+	height:27px;
+	margin-top:5px;
+	background:url(../images/footerbg2.png);
+	
+}

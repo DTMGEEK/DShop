@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.configuration.xml.reload" value="true"/>
+    <constant name="struts.i18n.enconding" value="UTF-8" />
+    <constant name="struts.multipart.maxSize" value="10701096"/>
+    
+     
+    <!-- 转向控制台  -->
+     <package name="forwar" namespace="/control/main" extends="struts-default">
+     
+    
+     
+     
+     
+       <!-- 后台登录界面 -->       
+              <action name="bglogo">
+                   <result>/WEB-INF/pages/controlcenter/Backgroundlogin.jsp</result>
+              </action>
+       <!-- 后台登录界面 -->
+       
+       
+        <action name="tab">
+	              <result>/WEB-INF/pages/controlcenter/Backgroundindex.jsp</result>
+	 
+	   </action>
+       
+     
+     <!--后台登陆验证  -->
+	     <action name="tab" class="cn.dshop.web.action.priviledge.EmployeeLogoAction" method="backgroundLogo">
+	              <result name="logosuccess">/WEB-INF/pages/controlcenter/Backgroundindex.jsp</result>
+	              <result name="logoerr">/WEB-INF/pages/controlcenter/Backgroundlogin.jsp</result>
+	      </action>
+	<!-- 后台登陆验证  -->
+	      
+	      
+	      <action name="loginfla">
+	            <result>/WEB-INF/pages/controlcenter/LoginFlash.html</result>
+	      </action>
+	      
+    <!-- 后台登出 -->
+	      <action name="logoout" class="cn.dshop.web.action.priviledge.EmployeeLoout" method="backgroundLogOut">
+	            <result name="logosuccess">/WEB-INF/pages/controlcenter/Backgroundlogin.jsp</result>
+	      </action>
+    <!-- 后台登出 -->  
+	
+	
+	      
+	<!-- 系统初始化 -->
+	      <action name="systeminit" class="cn.dshop.web.action.system.SystemInitAction" method="initSystem">
+	               <result name="logo">/WEB-INF/pages/share/initMessage.jsp</result>
+	      </action>
+	<!-- 系统初始化 -->
+	
+	
+	      
+     </package>
+     
+     
+     
+     
+      <!-- 转向控制台  没加入验证action-->
+    
+    
+    <!-- 管理模块 -->
+ 
+    <include file="strutsproduct.xml"/> 
+    
+    <!-- 管理模块 -->
+    
+    <!-- 商城模块 -->
+    
+    <include file="strutsshop.xml"/>
+    
+    
+    <!-- 商城模块 -->
+    
+    
+    
+    <!-- 用户模块 -->
+    
+     <include file="strutsuser.xml"/>
+    
+    <!-- 用户模块 -->
+    
+    
+    <!-- 权限模块 -->
+    
+     <include file="strutspriviledge.xml"/>
+    
+    <!-- 权限模块 -->
+    
+    <!-- json -->
+      <include file="strutsjson.xml"/>
+    <!-- json -->
+    
+    
+    
+    <!-- 订单管理模块 -->
+   		 <include file="strutsorder.xml"/>
+    <!-- 订单管理模块 -->
+    
+    
+    
+    
+    <!-- 文件上传模块 -->
+         
+    
+
+
+</struts>
